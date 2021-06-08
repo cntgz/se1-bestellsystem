@@ -12,7 +12,7 @@ import datamodel.OrderItem;
 final class OutputProcessor implements Components.OutputProcessor {
 
 	private InventoryManager inventoryManager;
-	private OrderProcessor orderProcessor;
+	private OrderProcessor orderProcessor = OrderProcessor.getInstance();
 
 	OutputProcessor(InventoryManager inventoryManager, OrderProcessor orderProcessor) {
 
@@ -21,7 +21,6 @@ final class OutputProcessor implements Components.OutputProcessor {
 	@Override
 	public void printOrders(List<Order> orders, boolean printVAT) {
 		int printLineWidth = 95;
-		
 		
 		StringBuffer sbAllOrders = new StringBuffer( "-------------" );
 		StringBuffer sbLineItem = new StringBuffer();
@@ -45,6 +44,12 @@ final class OutputProcessor implements Components.OutputProcessor {
 		sbAllOrders.append( "\n" )
 		.append( fmtLine( "-------------", "------------- -------------", printLineWidth ) + "\n")
 		.append( fmtLine( "Gesamtwert aller Bestellungen:", fmtPrice(saldo, "", " EUR" ), printLineWidth));
+		
+		if(printVAT) {
+			long vat = orderProcessor.vat(saldo);
+			sbAllOrders.append("\n")
+			.append(fmtLine( "Im Gesamtbetrag enthaltene Mehrwertsteuer (19%):", fmtPrice(vat, "", " EUR" ), printLineWidth));
+		}
 		
 		System.out.println(sbAllOrders.toString());
 	}

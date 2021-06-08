@@ -27,7 +27,7 @@ public class Application_C3 {
 //	    printList(orders);
 //	    printID(orders);
 	    
-	    outputProcessor.printOrders(orders, false);
+	    outputProcessor.printOrders(orders, true);
 	    
 	}
 	

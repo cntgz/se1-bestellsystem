@@ -1,10 +1,13 @@
 package system;
 
 import datamodel.Order;
+import datamodel.RawDataFactory;
+import datamodel.RawDataFactory.RawDataFactoryIntf;
 
 final class OrderProcessor implements Components.OrderProcessor {
 	
-	private InventoryManager inventoryManager;
+	private static InventoryManager inventoryManager;
+	private static OrderProcessor instance = null;
 
 	OrderProcessor(InventoryManager inventoryManager) {
 		this.inventoryManager = inventoryManager;
@@ -24,14 +27,27 @@ final class OrderProcessor implements Components.OrderProcessor {
 
 	@Override
 	public long vat(long grossValue) {
-		// TODO Auto-generated method stub
-		return 0;
+		return vat(grossValue,1);
 	}
 
 	@Override
 	public long vat(long grossValue, int rateIndex) {
-		// TODO Auto-generated method stub
-		return 0;
+		double mwst = 0;
+		switch(rateIndex) {
+		case 1: mwst = 0.19; break;
+		case 2: mwst = 0.07; break;
+		}
+		long steuerbetrag = Math.round((grossValue/ 1.19) * mwst);
+		
+		return steuerbetrag;
+	}
+	
+	public static OrderProcessor getInstance() {
+		if( instance == null) {
+			instance = new OrderProcessor(inventoryManager);
+			return instance;
+		}
+		return null;
 	}
 
 }
