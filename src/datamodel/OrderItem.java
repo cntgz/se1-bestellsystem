@@ -14,6 +14,9 @@ public class OrderItem {
 	}
 
 	public String getDescription() {
+		if(description == null) {
+			setDescription("");
+		}
 		return description;
 	}
 
@@ -22,6 +25,9 @@ public class OrderItem {
 	}
 
 	public int getUnitsOrdered() {
+		if(unitsOrdered <= 0) {
+			setUnitsOrdered(0);
+		}
 		return unitsOrdered;
 	}
 

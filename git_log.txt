@@ -1,0 +1,23 @@
+commit bc507455e3fefb8b44e8b383a4cab6685108f85f
+Author: cntgz <cuneyt.gizlenci@hotmail.de>
+Date:   Tue Jun 8 21:22:33 2021 +0200
+
+    mwst
+
+commit ac67fab0bf0c3772391a52b2a7eca75477bf1430
+Author: cntgz <cuneyt.gizlenci@hotmail.de>
+Date:   Tue Jun 8 19:19:46 2021 +0200
+
+    initial commit .gitignore
+
+commit b78949eebde16f9ee3e0815b977da542b1acf68b
+Author: cntgz <cuneyt.gizlenci@hotmail.de>
+Date:   Tue Jun 8 19:10:44 2021 +0200
+
+    initial commit ./src
+
+commit 0c9c10a218b3a5ff0c98b258b38b65f3942a916a
+Author: cntgz <cuneyt.gizlenci@hotmail.de>
+Date:   Tue Jun 8 19:05:07 2021 +0200
+
+    initial commit .gitignore

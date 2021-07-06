@@ -37,19 +37,21 @@ public class Order {
 		return items.size();
 	}
 	
+	
+	
 	public Order addItem(OrderItem item) {
 		items.add(item);
 		return this;
 	}
 	
-//	public Order removeItem(OrderItem item) {
-//		items.remove(item);
-//		return this;
-//	}
-//	
-//	public Order clearItems() {
-//		items.clear();
-//		return this;
-//	}
+	public Order removeItem(OrderItem item) {
+		items.remove(item);
+		return this;
+	}
+	
+	public Order clearItems() {
+		items.clear();
+		return this;
+	}
 	
 }

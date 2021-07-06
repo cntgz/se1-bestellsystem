@@ -19,20 +19,26 @@ public class Article {
 	}
 	
 	public String getDescription() {
+		if(description == null) {
+			setDescription("");
+		}
 		return description;
 	}
 	
 	public long getUnitPrice() {
+		if(unitPrice <= 0 || unitPrice > 99999999) {
+			setUnitPrice(0);
+		}
 		return unitPrice;
 	}
 	
 	public int getUnitsInStore() {
+		if(unitsInStore <= 0 || unitsInStore > 99999999) {
+			setUnitsInStore(0);
+		}
 		return unitsInStore;
 	}
 	
-	public long getPresentValue() {
-		return getUnitsInStore() * getUnitPrice();
-	}
 
 	public void setDescription(String descr) {
 		this.description = descr;

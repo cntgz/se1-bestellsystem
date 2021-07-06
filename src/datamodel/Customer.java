@@ -10,8 +10,16 @@ public class Customer {
 	protected Customer(String id, String name, String contact) {
 		this.id = id;
 		this.firstName = "";
-		this.lastName = name;
-		this.contact = contact;
+		if(name != null || contact != null) {
+			this.lastName = name;
+			this.contact = contact;
+		}
+		else {
+			this.lastName = "";
+			this.contact = "";
+		}
+		
+	
 	}
 	
 	public String getFirstName() {
@@ -19,7 +27,13 @@ public class Customer {
 	}
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		if(firstName != null) {
+			this.firstName = firstName;
+		}
+		else {
+			firstName = "";
+		}
+
 	}
 
 	public String getLastName() {
@@ -27,7 +41,12 @@ public class Customer {
 	}
 
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		if(lastName != null) {
+			this.lastName = lastName;
+		}
+		else {
+			lastName = "";
+		}
 	}
 	
 
@@ -37,7 +56,12 @@ public class Customer {
 
 
 	public void setContact(String contact) {
-		this.contact = contact;
+		if(contact != null) {
+			this.contact = contact;
+		}
+		else {
+			contact = "";
+		}
 	}
 
 	public String getId() {

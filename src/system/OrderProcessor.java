@@ -33,11 +33,12 @@ final class OrderProcessor implements Components.OrderProcessor {
 	@Override
 	public long vat(long grossValue, int rateIndex) {
 		double mwst = 0;
+		double full = 0;
 		switch(rateIndex) {
-		case 1: mwst = 0.19; break;
-		case 2: mwst = 0.07; break;
+		case 1: mwst = 0.19; full = 1.19; break;
+		case 2: mwst = 0.07; full = 1.07; break;
 		}
-		long steuerbetrag = Math.round((grossValue/ 1.19) * mwst);
+		long steuerbetrag = Math.round((grossValue/ full) * mwst);
 		
 		return steuerbetrag;
 	}
